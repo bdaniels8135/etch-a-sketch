@@ -21,17 +21,21 @@ function deleteGrid() {
     ui.gridContainer.innerHTML = '';
 }
 
+function eraseGridElement(elem) {
+    elem.style.color = 'white';
+}
+
 function eraseGrid() {
     let gridElements = document.querySelectorAll('.grid-element');
     for (const elem of gridElements){
-        elem.classList.remove('active')
+        eraseGridElement(elem);
     }
 }
 
 function fillGrid() {
     let gridElements = document.querySelectorAll('.grid-element');
     for (const elem of gridElements){
-        elem.classList.add('active')
+        elem.style.color = 'black';
     }
 }
 

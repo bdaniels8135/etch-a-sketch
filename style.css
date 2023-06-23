@@ -21,7 +21,7 @@ body {
 }
 
 #grid-container {
-    flex: 0 1 500px;
+    flex: 0 1 750px;
     aspect-ratio: 1;
     margin: 20px;
     flex-direction: column;
@@ -38,8 +38,4 @@ body {
     flex: auto;
     aspect-ratio: 1;
     border: 1px solid black;
-}
-
-.active {
-    background-color: black;
 }

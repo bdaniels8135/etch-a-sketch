@@ -17,4 +17,21 @@ body {
     min-width: 300px;
     aspect-ratio: 1;
     max-width: 1000px;
+    flex-direction: column;
+}
+
+.grid-row {
+    flex: 1;
+    display: flex;
+    border: none;
+}
+
+.grid-element {
+    flex: auto;
+    aspect-ratio: 1;
+    border: 1px solid black;
+}
+
+.active {
+    background-color: black;
 }

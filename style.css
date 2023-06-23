@@ -9,15 +9,19 @@ body {
     flex-direction: column;
 }
 
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.container.header, .container.footer {
+    background-color: rgb(219, 173, 72);
+}
+
 .text.header {
     font-size: 32px;
     font-weight: 800;
     padding: 10px;
-}
-
-.container {
-    display: flex;
-    justify-content: center;
 }
 
 .container.menu {
@@ -26,6 +30,7 @@ body {
     align-self: center;
     gap: 8px;
     padding: 8px 20px;
+    background-color: rgb(230, 220, 205);
 }
 
 .text.menu {
@@ -39,12 +44,16 @@ body {
     padding: 2px 4px;
 }
 
+.container.main {
+    background-color: rgb(230, 220, 205);
+}
+
 .container.grid {
     flex: 0 1 750px;
     aspect-ratio: 1;
     margin: 20px;
     flex-direction: column;
-    border: 1px solid black;
+    border: 3px solid black;
 }
 
 .grid-row {
@@ -56,7 +65,8 @@ body {
 .grid-element {
     flex: auto;
     aspect-ratio: 1;
-    border: 1px solid black;
+    background-color: white;
+    /* border: 1px solid black; */
 }
 
 .footer {

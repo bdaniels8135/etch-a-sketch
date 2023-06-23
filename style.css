@@ -12,6 +12,7 @@ body {
 
 .text.header {
     font-size: 32px;
+    font-weight: 800;
     padding: 10px;
 }
 
@@ -20,7 +21,26 @@ body {
     justify-content: center;
 }
 
-#grid-container {
+.container.menu {
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    gap: 8px;
+    padding: 8px 20px;
+}
+
+.text.menu {
+    text-align: center;
+    font-size: 16px;
+    font-weight: 800;
+}
+
+.button {
+    flex: auto;
+    padding: 2px 4px;
+}
+
+.container.grid {
     flex: 0 1 750px;
     aspect-ratio: 1;
     margin: 20px;
@@ -38,4 +58,10 @@ body {
     flex: auto;
     aspect-ratio: 1;
     border: 1px solid black;
+}
+
+.footer {
+    font-weight: 600;
+    font-size: 16px;
+    padding: 8px;
 }

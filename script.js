@@ -17,6 +17,24 @@ function buildGrid(dimension = 16) {
     }
 }
 
+function deleteGrid() {
+    ui.gridContainer.innerHTML('');
+}
+
+function eraseGrid() {
+    let gridElements = document.querySelectorAll('.grid-element');
+    for (const elem of gridElements){
+        elem.classList.remove('active')
+    }
+}
+
+function fillGrid() {
+    let gridElements = document.querySelectorAll('.grid-element');
+    for (const elem of gridElements){
+        elem.classList.add('active')
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     buildGrid();
 })

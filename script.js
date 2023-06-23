@@ -18,7 +18,7 @@ function buildGrid(dimension = 16) {
 }
 
 function deleteGrid() {
-    ui.gridContainer.innerHTML('');
+    ui.gridContainer.innerHTML = '';
 }
 
 function eraseGrid() {

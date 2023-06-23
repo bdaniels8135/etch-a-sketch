@@ -15,7 +15,7 @@ body {
 }
 
 .container.header, .container.footer {
-    background-color: rgb(219, 173, 72);
+    background-color: rgb(170, 45, 45);
 }
 
 .text.header {
@@ -30,7 +30,7 @@ body {
     align-self: center;
     gap: 8px;
     padding: 8px 20px;
-    background-color: rgb(230, 220, 205);
+    background-color: rgb(220, 215, 205);
 }
 
 .text.menu {

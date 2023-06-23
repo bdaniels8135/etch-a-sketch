@@ -22,20 +22,24 @@ function deleteGrid() {
 }
 
 function eraseGridElement(elem) {
-    elem.style.color = 'white';
+    elem.style.backgroundColor = 'white';
 }
 
 function eraseGrid() {
-    let gridElements = document.querySelectorAll('.grid-element');
-    for (const elem of gridElements){
+    const gridElements = document.querySelectorAll('.grid-element');
+    for (const elem of gridElements) {
         eraseGridElement(elem);
     }
 }
 
+function fillGridElement(elem) {
+    elem.style.backgroundColor = 'black';
+}
+
 function fillGrid() {
-    let gridElements = document.querySelectorAll('.grid-element');
-    for (const elem of gridElements){
-        elem.style.color = 'black';
+    const gridElements = document.querySelectorAll('.grid-element');
+    for (const elem of gridElements) {
+        fillGridElement(elem);
     }
 }
 

@@ -12,8 +12,35 @@
     <header class="container header">
         <div class="text header">Etch-a-Sketch</div>
     </header>
-    <main class="container main"> 
-        <div class="container" id="grid-container"></div>
-    </main>
+    <div class="container menu">
+        <div class="text menu">Grid Size</div>
+        <div class="container buttons" id="size-buttons">
+            <button class="button size">Small (5x5)</button>    
+            <button class="button size">Medium (15x15)</button>    
+            <button class="button size">Large (45x45)</button>    
+            <button class="button size">Custom</button>    
+        </div>
+        <div class="text menu">Pen Color</div>
+        <div class="container buttons" id="color-buttons">
+            <button class="button color">Black</button>    
+            <button class="button color">White</button>    
+            <button class="button color">Rainbow</button>    
+            <button class="button color">Random</button>    
+            <button class="button color">Custom</button>    
+        </div>
+        <div class="text menu">Background Color</div>
+        <div class="container buttons" id="background-buttons">
+            <button class="button grid">White</button>    
+            <button class="button grid">Black</button>    
+            <button class="button grid">Custom</button>    
+            <button class="button grid">Reset Grid</button>      
+        </div>
+    </div>
+    <div class="container main"> 
+        <div class="container grid" id="grid-container"></div>
+    </div>
+    <footer class="container footer">
+        <div class="text footer">Copyright &copy; 2023 bdaniels8135</div>
+    </footer>
 </body>
 </html>

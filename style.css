@@ -7,16 +7,25 @@
 body {
     display: flex; 
     font-family: sans-serif;
+    flex-direction: column;
+}
+
+.text.header {
+    font-size: 32px;
+    padding: 10px;
+}
+
+.container {
+    display: flex;
     justify-content: center;
-    align-items: center;
 }
 
 #grid-container {
-    display: flex;
-    flex: 0 1 1000px;
+    flex: 0 1 500px;
     aspect-ratio: 1;
-    flex-direction: column;
     margin: 20px;
+    flex-direction: column;
+    border: 1px solid black;
 }
 
 .grid-row {

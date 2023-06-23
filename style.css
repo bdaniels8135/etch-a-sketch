@@ -9,15 +9,14 @@ body {
     font-family: sans-serif;
     justify-content: center;
     align-items: center;
-    padding: 50px 8px;
 }
 
 #grid-container {
     display: flex;
-    min-width: 300px;
+    flex: 0 1 1000px;
     aspect-ratio: 1;
-    max-width: 1000px;
     flex-direction: column;
+    margin: 20px;
 }
 
 .grid-row {

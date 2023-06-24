@@ -1,5 +1,8 @@
 const ui = Object.freeze({
-    gridContainer: document.querySelector('#grid-container')
+    gridContainer: document.querySelector('#grid-container'),
+    sizeButtons: document.querySelectorAll('.button.size'),
+    colorButtons: document.querySelectorAll('.button.color'),
+    gridButtons: document.querySelectorAll('.button.grid-background')
 })
 
 function buildGrid(dimension = 16) {

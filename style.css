@@ -14,7 +14,7 @@ body {
 
 main.container.main {
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: flex-start;
 }
 
 .container {
@@ -36,14 +36,12 @@ main.container.main {
     flex-direction: column;
     align-self: center;
     gap: 8px;
-    padding: 8px 20px;
+    padding: 20px;
     background-color: rgb(220, 215, 205);
-    /* border: 1px solid blue; */
-    flex: 0 1 300px;
-    justify-content: space-around;
 }
 
 .text.menu {
+    padding-top: 20px;
     text-align: center;
     font-size: 16px;
     font-weight: 800;
@@ -57,7 +55,6 @@ main.container.main {
 
 .container.main {
     background-color: rgb(220, 215, 205);
-    /* border: 1px solid blue; */
     flex: 1;
 }
 

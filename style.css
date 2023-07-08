@@ -8,6 +8,13 @@ body {
     font-family: sans-serif;
     flex-direction: column;
     background-color: rgb(220, 215, 205);
+    min-height: 100vh;
+    justify-content: space-between;
+}
+
+main.container.main {
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 .container {
@@ -27,11 +34,13 @@ body {
 
 .container.menu {
     flex-direction: column;
-    justify-content: center;
     align-self: center;
     gap: 8px;
     padding: 8px 20px;
     background-color: rgb(220, 215, 205);
+    /* border: 1px solid blue; */
+    flex: 0 1 300px;
+    justify-content: space-around;
 }
 
 .text.menu {
@@ -48,6 +57,8 @@ body {
 
 .container.main {
     background-color: rgb(220, 215, 205);
+    /* border: 1px solid blue; */
+    flex: 1;
 }
 
 .container.grid {

@@ -12,33 +12,35 @@
     <header class="container header">
         <div class="text header">Etch-a-Sketch</div>
     </header>
-    <div class="container menu">
-        <div class="text menu">Grid Size</div>
-        <div class="container buttons" id="size-buttons">
-            <button class="button size" id="small-size-button">Small (5x5)</button>    
-            <button class="button size" id="medium-size-button">Medium (15x15)</button>    
-            <button class="button size" id="large-size-button">Large (45x45)</button>    
-            <button class="button size" id="custom-size-button">Custom</button>    
+    <main class="container main">
+        <div class="container menu">
+            <div class="text menu">Grid Size</div>
+            <div class="container buttons" id="size-buttons">
+                <button class="button size" id="small-size-button">Small (5x5)</button>    
+                <button class="button size" id="medium-size-button">Medium (15x15)</button>    
+                <button class="button size" id="large-size-button">Large (45x45)</button>    
+                <button class="button size" id="custom-size-button">Custom</button>    
+            </div>
+            <div class="text menu">Pen Color</div>
+            <div class="container buttons" id="color-buttons">
+                <button class="button color" id="black-color-button">Black</button>    
+                <button class="button color" id="whjite-color-button">White</button>    
+                <button class="button color" id="rainbow-color-button">Rainbow</button>    
+                <button class="button color" id="random-color-button">Random</button>    
+                <button class="button color" id="custom-color-button">Custom</button>    
+            </div>
+            <div class="text menu">Background Color</div>
+            <div class="container buttons" id="grid-background-buttons">
+                <button class="button grid-background" id="white-background-button">White</button>    
+                <button class="button grid-background" id="black-background-button">Black</button>    
+                <button class="button grid-background" id="custom-background-button">Custom</button>    
+                <button class="button grid-background" id="reset-background-button">Reset Grid</button>      
+            </div>
         </div>
-        <div class="text menu">Pen Color</div>
-        <div class="container buttons" id="color-buttons">
-            <button class="button color" id="black-color-button">Black</button>    
-            <button class="button color" id="whjite-color-button">White</button>    
-            <button class="button color" id="rainbow-color-button">Rainbow</button>    
-            <button class="button color" id="random-color-button">Random</button>    
-            <button class="button color" id="custom-color-button">Custom</button>    
+        <div class="container"> 
+            <div class="container grid" id="grid-container"></div>
         </div>
-        <div class="text menu">Background Color</div>
-        <div class="container buttons" id="grid-background-buttons">
-            <button class="button grid-background" id="white-background-button">White</button>    
-            <button class="button grid-background" id="black-background-button">Black</button>    
-            <button class="button grid-background" id="custom-background-button">Custom</button>    
-            <button class="button grid-background" id="reset-background-button">Reset Grid</button>      
-        </div>
-    </div>
-    <div class="container main"> 
-        <div class="container grid" id="grid-container"></div>
-    </div>
+    </main>
     <footer class="container footer">
         <div class="text footer">Copyright &copy; 2023 bdaniels8135</div>
     </footer>

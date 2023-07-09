@@ -3,8 +3,11 @@ const ui = Object.freeze({
     sizeButtons: document.querySelectorAll('.button.size'),
     colorButtons: document.querySelectorAll('.button.color'),
     backgroundColorButtons: document.querySelectorAll('.button.grid-background'),
-    eraseButton: document.querySelector('#erase-button')
+    eraseButton: document.querySelector('#erase-button'),
 })
+
+let gridBackgroundColor = 'white';
+let penColor = 'black';
 
 function addButtonClickListeners() {
     for (const button of ui.sizeButtons) {
@@ -34,7 +37,7 @@ function addGridElementClickListeners() {
     const gridElements = document.querySelectorAll('.grid-element');
     for (let elem of gridElements) {
         elem.addEventListener('click', () => {
-            fillGridElement(elem)
+            fillGridElement(elem);
         })
     }
 }
@@ -59,7 +62,7 @@ function deleteGrid() {
 }
 
 function eraseGridElement(elem) {
-    elem.style.backgroundColor = 'white';
+    elem.style.backgroundColor = gridBackgroundColor;
 }
 
 function eraseGrid() {
@@ -70,7 +73,7 @@ function eraseGrid() {
 }
 
 function fillGridElement(elem) {
-    elem.style.backgroundColor = 'black';
+    elem.style.backgroundColor = penColor;
 }
 
 function fillGrid() {
@@ -102,10 +105,6 @@ function resolveBackgroundColorButtonClick(button) {
     }
     button.classList.add('active');
     console.log(button.id);
-}
-
-function resolveEraseButtonClick() {
-    console.log(ui.eraseButton.id);
 }
 
 document.addEventListener('DOMContentLoaded', () => {

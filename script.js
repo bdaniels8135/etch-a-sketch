@@ -86,7 +86,7 @@ function fillGrid() {
 }
 
 function resolveSizeButtonClick(button) {
-    const newGridSize = null;
+    let newGridSize;
     switch (button.id) {
         case 'small-size-button':
             newGridSize = 10;
@@ -120,15 +120,34 @@ function resolveSizeButtonClick(button) {
 }
 
 function resolveColorButtonClick(button) {
-    for (const btn of ui.colorButtons) {
-        btn.classList.remove('active');
+    let newPenColor;
+    switch (button.id) {
+        case 'black-color-button':
+            newPenColor = 'black';
+            break;
+        case 'white-color-button':
+            newPenColor = 'white';
+            break;    
+        case 'rainbow-color-button':
+            alert('Sorry! The rainbow pen color button is still under construction.')
+            break;
+        case 'random-color-button':
+            alert('Sorry! The random pen color button is still under construction.')
+            break;
+        case 'custom-color-button':
+            alert('Sorry! The custom pen color button is still under construction.')
     }
-    button.classList.add('active');
-    console.log(button.id);
+    if (newPenColor) {
+        for (const btn of ui.colorButtons) {
+            btn.classList.remove('active');
+        }
+        button.classList.add('active');
+        penColor = newPenColor;
+    }
 }
 
 function resolveBackgroundColorButtonClick(button) {
-    const newGridBackgroundColor = null;
+    let newGridBackgroundColor;
     switch (button.id) {
         case 'white-background-button':
             newGridBackgroundColor = 'white'
@@ -137,7 +156,7 @@ function resolveBackgroundColorButtonClick(button) {
             newGridBackgroundColor = 'black'
             break;
         case 'custom-background-button':
-            console.log('Custom background color button pushed!');
+            alert('Sorry! The custom background color button is still under construction.');
     }
     if (newGridBackgroundColor) {
         for (const btn of ui.backgroundColorButtons) {

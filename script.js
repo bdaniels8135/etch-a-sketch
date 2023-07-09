@@ -56,7 +56,7 @@ function buildGrid(dimension = 25) {
             gridRow.appendChild(gridElement);
         }
     }
-    addGridElementMouseoverListeners()
+    addGridElementMouseoverListeners();
 }
 
 function deleteGrid() {
@@ -129,13 +129,13 @@ function resolveColorButtonClick(button) {
             newPenColor = 'white';
             break;    
         case 'rainbow-color-button':
-            alert('Sorry! The rainbow pen color button is still under construction.')
+            alert('Sorry! The rainbow pen color button is still under construction.');
             break;
         case 'random-color-button':
-            alert('Sorry! The random pen color button is still under construction.')
+            alert('Sorry! The random pen color button is still under construction.');
             break;
         case 'custom-color-button':
-            alert('Sorry! The custom pen color button is still under construction.')
+            alert('Sorry! The custom pen color button is still under construction.');
     }
     if (newPenColor) {
         for (const btn of ui.colorButtons) {
@@ -150,10 +150,10 @@ function resolveBackgroundColorButtonClick(button) {
     let newGridBackgroundColor;
     switch (button.id) {
         case 'white-background-button':
-            newGridBackgroundColor = 'white'
+            newGridBackgroundColor = 'white';
             break;
         case 'black-background-button':
-            newGridBackgroundColor = 'black'
+            newGridBackgroundColor = 'black';
             break;
         case 'custom-background-button':
             alert('Sorry! The custom background color button is still under construction.');
@@ -163,8 +163,8 @@ function resolveBackgroundColorButtonClick(button) {
             btn.classList.remove('active');
         }
         button.classList.add('active');
-        gridBackgroundColor = newGridBackgroundColor
-        eraseGrid()
+        gridBackgroundColor = newGridBackgroundColor;
+        eraseGrid();
     } 
 }
 

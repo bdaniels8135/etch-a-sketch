@@ -26,8 +26,17 @@ function addButtonClickListeners() {
     }
     
     ui.eraseButton.addEventListener('click', () => {
-        resolveEraseButtonClick()
+        eraseGrid();
     })    
+}
+
+function addGridElementClickListeners() {
+    const gridElements = document.querySelectorAll('.grid-element');
+    for (let elem of gridElements) {
+        elem.addEventListener('click', () => {
+            fillGridElement(elem)
+        })
+    }
 }
 
 function buildGrid(dimension = 25) {
@@ -88,7 +97,7 @@ function resolveColorButtonClick(button) {
 }
 
 function resolveBackgroundColorButtonClick(button) {
-    for (const btn of ui.gridBackgroundButtons) {
+    for (const btn of ui.backgroundColorButtons) {
         btn.classList.remove('active');
     }
     button.classList.add('active');
@@ -102,4 +111,5 @@ function resolveEraseButtonClick() {
 document.addEventListener('DOMContentLoaded', () => {
     buildGrid();
     addButtonClickListeners();
+    addGridElementClickListeners();
 })

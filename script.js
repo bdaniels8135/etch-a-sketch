@@ -35,7 +35,7 @@ function addButtonClickListeners() {
 
 function addGridElementMouseoverListeners() {
     const gridElements = document.querySelectorAll('.grid-element');
-    for (let elem of gridElements) {
+    for (const elem of gridElements) {
         elem.addEventListener('mouseover', () => {
             fillGridElement(elem);
         })
@@ -86,16 +86,16 @@ function fillGrid() {
 }
 
 function resolveSizeButtonClick(button) {
-    let gridSize;
+    const newGridSize = null;
     switch (button.id) {
         case 'small-size-button':
-            gridSize = 10;
+            newGridSize = 10;
             break;
         case 'medium-size-button':
-            gridSize = 25;
+            newGridSize = 25;
             break;
         case 'large-size-button':
-            gridSize = 75;
+            newGridSize = 75;
             break;
         case 'custom-size-button':
             while (true) {
@@ -105,17 +105,17 @@ function resolveSizeButtonClick(button) {
                     alert('Invalid Input!');
                     continue;
                 }
-                gridSize = Number(sizeInput);
+                newGridSize = Number(sizeInput);
                 break;
             }
     }
-    if (gridSize != null) {
+    if (newGridSize) {
         for (const btn of ui.sizeButtons) {
             btn.classList.remove('active');
         }
         button.classList.add('active');
         deleteGrid();
-        buildGrid(gridSize);
+        buildGrid(newGridSize);
     }
 }
 
@@ -128,11 +128,25 @@ function resolveColorButtonClick(button) {
 }
 
 function resolveBackgroundColorButtonClick(button) {
-    for (const btn of ui.backgroundColorButtons) {
-        btn.classList.remove('active');
+    const newGridBackgroundColor = null;
+    switch (button.id) {
+        case 'white-background-button':
+            newGridBackgroundColor = 'white'
+            break;
+        case 'black-background-button':
+            newGridBackgroundColor = 'black'
+            break;
+        case 'custom-background-button':
+            console.log('Custom background color button pushed!');
     }
-    button.classList.add('active');
-    console.log(button.id);
+    if (newGridBackgroundColor) {
+        for (const btn of ui.backgroundColorButtons) {
+            btn.classList.remove('active');
+        }
+        button.classList.add('active');
+        gridBackgroundColor = newGridBackgroundColor
+        eraseGrid()
+    } 
 }
 
 document.addEventListener('DOMContentLoaded', () => {

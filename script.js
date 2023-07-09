@@ -33,10 +33,10 @@ function addButtonClickListeners() {
     })    
 }
 
-function addGridElementClickListeners() {
+function addGridElementMouseoverListeners() {
     const gridElements = document.querySelectorAll('.grid-element');
     for (let elem of gridElements) {
-        elem.addEventListener('click', () => {
+        elem.addEventListener('mouseover', () => {
             fillGridElement(elem);
         })
     }
@@ -52,9 +52,11 @@ function buildGrid(dimension = 25) {
         for (let j = 0; j < dimension; j++) {
             gridElement = document.createElement('div');
             gridElement.classList.add('grid-element');
+            gridElement.style.backgroundColor = gridBackgroundColor;
             gridRow.appendChild(gridElement);
         }
     }
+    addGridElementMouseoverListeners()
 }
 
 function deleteGrid() {
@@ -84,11 +86,37 @@ function fillGrid() {
 }
 
 function resolveSizeButtonClick(button) {
-    for (const btn of ui.sizeButtons) {
-        btn.classList.remove('active');
+    let gridSize;
+    switch (button.id) {
+        case 'small-size-button':
+            gridSize = 10;
+            break;
+        case 'medium-size-button':
+            gridSize = 25;
+            break;
+        case 'large-size-button':
+            gridSize = 75;
+            break;
+        case 'custom-size-button':
+            while (true) {
+                let sizeInput = prompt('Enter a grid size between 1 and 100 (inclusive):');
+                if (sizeInput == null) break;
+                if (!Number.isInteger(Number(sizeInput)) || sizeInput < 1 || sizeInput > 100) {
+                    alert('Invalid Input!');
+                    continue;
+                }
+                gridSize = Number(sizeInput);
+                break;
+            }
     }
-    button.classList.add('active');
-    console.log(button.id);
+    if (gridSize != null) {
+        for (const btn of ui.sizeButtons) {
+            btn.classList.remove('active');
+        }
+        button.classList.add('active');
+        deleteGrid();
+        buildGrid(gridSize);
+    }
 }
 
 function resolveColorButtonClick(button) {
@@ -110,5 +138,5 @@ function resolveBackgroundColorButtonClick(button) {
 document.addEventListener('DOMContentLoaded', () => {
     buildGrid();
     addButtonClickListeners();
-    addGridElementClickListeners();
+    addGridElementMouseoverListeners();
 })

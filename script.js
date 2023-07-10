@@ -8,6 +8,8 @@ const ui = Object.freeze({
 
 let gridBackgroundColor = 'white';
 let penColor = 'black';
+let rainbowPenColor = false;
+let randomPenColor = false;
 
 function addButtonClickListeners() {
     for (const button of ui.sizeButtons) {
@@ -33,11 +35,27 @@ function addButtonClickListeners() {
     })    
 }
 
+function getRandomColor() {
+    return `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`;
+}
+
+function getNextRainbowColor() {
+    const rainbowColors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
+    let nextRainbowColor = rainbowColors[rainbowColors.indexOf(penColor) + 1];
+    return nextRainbowColor ? nextRainbowColor : 'red';
+}
+
 function addGridElementMouseoverListeners() {
     const gridElements = document.querySelectorAll('.grid-element');
     for (const elem of gridElements) {
         elem.addEventListener('mouseover', () => {
+            if (randomPenColor) {
+                penColor = getRandomColor();
+            }
             fillGridElement(elem);
+            if (rainbowPenColor) {
+                penColor = getNextRainbowColor();
+            }
         })
     }
 }
@@ -120,6 +138,8 @@ function resolveSizeButtonClick(button) {
 }
 
 function resolveColorButtonClick(button) {
+    randomPenColor = false;
+    rainbowPenColor = false;
     let newPenColor;
     switch (button.id) {
         case 'black-color-button':
@@ -129,10 +149,12 @@ function resolveColorButtonClick(button) {
             newPenColor = 'white';
             break;    
         case 'rainbow-color-button':
-            alert('Sorry! The rainbow pen color button is still under construction.');
+            rainbowPenColor = true;
+            newPenColor = 'red';
             break;
         case 'random-color-button':
-            alert('Sorry! The random pen color button is still under construction.');
+            randomPenColor = true;
+            newPenColor = getRandomColor();
             break;
         case 'custom-color-button':
             alert('Sorry! The custom pen color button is still under construction.');
@@ -143,7 +165,7 @@ function resolveColorButtonClick(button) {
         }
         button.classList.add('active');
         penColor = newPenColor;
-    }
+    }   
 }
 
 function resolveBackgroundColorButtonClick(button) {
@@ -171,5 +193,4 @@ function resolveBackgroundColorButtonClick(button) {
 document.addEventListener('DOMContentLoaded', () => {
     buildGrid();
     addButtonClickListeners();
-    addGridElementMouseoverListeners();
 })

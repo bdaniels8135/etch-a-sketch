@@ -4,10 +4,12 @@ const ui = Object.freeze({
     colorButtons: document.querySelectorAll('.button.color'),
     backgroundColorButtons: document.querySelectorAll('.button.grid-background'),
     eraseButton: document.querySelector('#erase-button'),
+    customBackgroundColorInput: document.querySelector('#custom-background-input'),
+    customPenColorInput: document.querySelector('#custom-color-input'),
 })
 
-let gridBackgroundColor = 'white';
-let penColor = 'black';
+let gridBackgroundColor = '#ffffff';
+let penColor = '#000000';
 let rainbowPenColor = false;
 let randomPenColor = false;
 
@@ -36,13 +38,13 @@ function addButtonClickListeners() {
 }
 
 function getRandomColor() {
-    return `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`;
+    return `#${Math.floor(Math.random()*16777215).toString(16)}`;
 }
 
 function getNextRainbowColor() {
-    const rainbowColors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
+    const rainbowColors = ['#ff0000', '#ffa500', '#ffff00', '#008000', '#0000ff', '#4b0082', '#ee82ee'];
     let nextRainbowColor = rainbowColors[rainbowColors.indexOf(penColor) + 1];
-    return nextRainbowColor ? nextRainbowColor : 'red';
+    return nextRainbowColor ? nextRainbowColor : '#ff0000';
 }
 
 function addGridElementMouseoverListeners() {
@@ -51,10 +53,12 @@ function addGridElementMouseoverListeners() {
         elem.addEventListener('mouseover', () => {
             if (randomPenColor) {
                 penColor = getRandomColor();
+                ui.customPenColorInput.setAttribute('value', penColor);
             }
             fillGridElement(elem);
             if (rainbowPenColor) {
                 penColor = getNextRainbowColor();
+                ui.customPenColorInput.setAttribute('value', penColor);
             }
         })
     }
@@ -143,21 +147,18 @@ function resolveColorButtonClick(button) {
     let newPenColor;
     switch (button.id) {
         case 'black-color-button':
-            newPenColor = 'black';
+            newPenColor = '#000000';         
             break;
         case 'white-color-button':
-            newPenColor = 'white';
+            newPenColor = '#ffffff';
             break;    
         case 'rainbow-color-button':
             rainbowPenColor = true;
-            newPenColor = 'red';
+            newPenColor = '#ff0000';
             break;
         case 'random-color-button':
             randomPenColor = true;
             newPenColor = getRandomColor();
-            break;
-        case 'custom-color-button':
-            alert('Sorry! The custom pen color button is still under construction.');
     }
     if (newPenColor) {
         for (const btn of ui.colorButtons) {
@@ -165,6 +166,7 @@ function resolveColorButtonClick(button) {
         }
         button.classList.add('active');
         penColor = newPenColor;
+        ui.customPenColorInput.setAttribute('value', penColor);
     }   
 }
 
@@ -172,13 +174,13 @@ function resolveBackgroundColorButtonClick(button) {
     let newGridBackgroundColor;
     switch (button.id) {
         case 'white-background-button':
-            newGridBackgroundColor = 'white';
+            newGridBackgroundColor = '#ffffff';
             break;
         case 'black-background-button':
-            newGridBackgroundColor = 'black';
+            newGridBackgroundColor = '#000000';
             break;
-        case 'custom-background-button':
-            alert('Sorry! The custom background color button is still under construction.');
+        case 'random-background-button':
+            newGridBackgroundColor = getRandomColor();
     }
     if (newGridBackgroundColor) {
         for (const btn of ui.backgroundColorButtons) {
@@ -186,6 +188,7 @@ function resolveBackgroundColorButtonClick(button) {
         }
         button.classList.add('active');
         gridBackgroundColor = newGridBackgroundColor;
+        ui.customBackgroundColorInput.setAttribute('value', gridBackgroundColor);
         eraseGrid();
     } 
 }

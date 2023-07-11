@@ -53,6 +53,13 @@ main.container.main {
     border: 1px solid gray;
 }
 
+.input {
+    flex: auto;
+    padding: 2px 2px;
+    border: 1px solid gray;
+    height: 31px;
+}
+
 .container.main {
     background-color: rgb(220, 215, 205);
     flex: 1;
@@ -88,4 +95,8 @@ main.container.main {
 .button.active {
     border: 2px solid rgb(170, 45, 45);
     font-weight: 600;
+}
+
+.input.active {
+    border: 2px solid rgb(170, 45, 45);
 }

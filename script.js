@@ -13,28 +13,47 @@ let penColor = '#000000';
 let rainbowPenColor = false;
 let randomPenColor = false;
 
-function addButtonClickListeners() {
+function addMenuListeners() {
     for (const button of ui.sizeButtons) {
         button.addEventListener('click', () => {
             resolveSizeButtonClick(button);
         })
     }
-    
+
     for (const button of ui.colorButtons) {
         button.addEventListener('click', () => {
             resolveColorButtonClick(button);
         })
     }
-    
+
     for (const button of ui.backgroundColorButtons) {
         button.addEventListener('click', () => {
             resolveBackgroundColorButtonClick(button);
         })
     }
-    
+
     ui.eraseButton.addEventListener('click', () => {
         eraseGrid();
-    })    
+    })
+
+    ui.customBackgroundColorInput.addEventListener('change', (event) => {
+        for (const btn of ui.backgroundColorButtons) {
+            btn.classList.remove('active');
+        }
+        event.target.classList.add('active');
+        gridBackgroundColor = event.target.value;
+        eraseGrid();
+    })
+
+    ui.customPenColorInput.addEventListener('change', (event) => {
+        for (const btn of ui.colorButtons) {
+            btn.classList.remove('active');
+        }
+        event.target.classList.add('active');
+        rainbowPenColor = false;
+        randomPenColor = false;
+        penColor = event.target.value;
+    })
 }
 
 function getRandomColor() {
@@ -53,12 +72,12 @@ function addGridElementMouseoverListeners() {
         elem.addEventListener('mouseover', () => {
             if (randomPenColor) {
                 penColor = getRandomColor();
-                ui.customPenColorInput.setAttribute('value', penColor);
+                ui.customPenColorInput.value = penColor;
             }
             fillGridElement(elem);
             if (rainbowPenColor) {
                 penColor = getNextRainbowColor();
-                ui.customPenColorInput.setAttribute('value', penColor);
+                ui.customPenColorInput.value = penColor;
             }
         })
     }
@@ -164,9 +183,10 @@ function resolveColorButtonClick(button) {
         for (const btn of ui.colorButtons) {
             btn.classList.remove('active');
         }
+        ui.customPenColorInput.classList.remove('active');
         button.classList.add('active');
         penColor = newPenColor;
-        ui.customPenColorInput.setAttribute('value', penColor);
+        ui.customPenColorInput.value = penColor;
     }   
 }
 
@@ -186,14 +206,15 @@ function resolveBackgroundColorButtonClick(button) {
         for (const btn of ui.backgroundColorButtons) {
             btn.classList.remove('active');
         }
+        ui.customBackgroundColorInput.classList.remove('active');
         button.classList.add('active');
         gridBackgroundColor = newGridBackgroundColor;
-        ui.customBackgroundColorInput.setAttribute('value', gridBackgroundColor);
+        ui.customBackgroundColorInput.value = gridBackgroundColor;
         eraseGrid();
     } 
 }
 
 document.addEventListener('DOMContentLoaded', () => {
     buildGrid();
-    addButtonClickListeners();
+    addMenuListeners();
 })
